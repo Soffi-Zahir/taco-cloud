@@ -13,7 +13,7 @@ public class Taco {
     @Size(min = 1,message = "Name at least be 5 characters")
     private String name;
 
-    @NotBlank
+
     @Size(min = 1)
     private List<Ingredient> ingredients;
 }

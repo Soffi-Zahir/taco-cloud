@@ -3,8 +3,12 @@ package com.zayzou.tacos.controller;
 import com.zayzou.tacos.entity.TacoOrder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+
+import javax.validation.Valid;
 
 @Slf4j
 @Controller
@@ -19,7 +23,10 @@ public class OrderController {
     }
 
     @PostMapping
-    public String processOrder(TacoOrder tacoOrder, SessionStatus sessionStatus){
+    public String processOrder(@Valid TacoOrder tacoOrder, Errors errors, SessionStatus sessionStatus){
+        if (errors.hasErrors()) {
+            return "orderForm";
+        }
         sessionStatus.setComplete();
         log.info("Processing order {}",tacoOrder);
         return "redirect:/";
