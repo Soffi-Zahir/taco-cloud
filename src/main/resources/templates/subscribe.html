@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+<h1>Become an artiste 🎨 </h1>
+<form method="post" th:object="${subscriber}">
+    <input type="text" th:field="*{name}">
+    <span class="validationError" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    <br>
+    <input type="text" th:field="*{email}">
+    <span class="validationError" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+
+    <br>
+    <input type="submit" value="Validate">
+</form>
+<ul>
+    <li><a th:href="@{/}">home</a></li>
+    <li><a th:href="@{/design}">design tacos</a></li>
+    <li><a th:href="@{/subscribe}">subscribe</a></li>
+</ul>
+</body>
+</html>

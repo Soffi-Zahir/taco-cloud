@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1>Subscriber added 🎨 </h1>
+<div>
+    <p  th:text="${subscriber.name}"></p>
+    <p  th:text="${subscriber.email}"></p>
+
+</div>
+<ul>
+    <li><a th:href="@{home}">home</a></li>
+    <li><a th:href="@{design}">design tacos</a></li>
+    <li><a th:href="@{subscribe}">subscribe</a></li>
+</ul>
+</body>
+</html>
