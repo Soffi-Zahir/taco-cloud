@@ -1,6 +1,6 @@
-package com.zayzou.tacos.controller;
+package com.zayzou.tacos.subscribtion;
 
-import com.zayzou.tacos.entity.Subscriber;
+import com.zayzou.tacos.subscribtion.Subscriber;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;

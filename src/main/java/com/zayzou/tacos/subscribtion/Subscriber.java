@@ -1,4 +1,4 @@
-package com.zayzou.tacos.entity;
+package com.zayzou.tacos.subscribtion;
 
 import lombok.Data;
 

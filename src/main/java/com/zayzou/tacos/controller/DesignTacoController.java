@@ -62,10 +62,6 @@ public class DesignTacoController {
         if (errors.hasErrors()){
             return "design";
         }
-
-        System.out.println(tacoOrder.toString());
-        System.out.println(errors);
-        System.out.println(taco.toString());
         tacoOrder.addTaco(taco);
         log.info("Processing taco: {}", taco);
         return "redirect:/orders/current";
