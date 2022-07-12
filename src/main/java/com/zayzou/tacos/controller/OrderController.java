@@ -29,6 +29,13 @@ public class OrderController {
         }
         sessionStatus.setComplete();
         log.info("Processing order {}",tacoOrder);
-        return "redirect:/";
+        tacoOrder.getTacos().stream().forEach(taco -> {
+            System.out.println("taco name : "+taco.getName());
+            System.out.println("ingredient : ");
+            taco.getIngredients().stream().forEach(ingredient -> {
+                System.out.println(ingredient.getName());
+            });
+        });
+        return "redirect:/design";
     }
 }
