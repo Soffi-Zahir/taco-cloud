@@ -1,10 +1,12 @@
 package com.zayzou.tacos.controller;
 
+import com.zayzou.tacos.data.IngredientRepository;
 import com.zayzou.tacos.entity.Ingredient;
 import com.zayzou.tacos.entity.Ingredient.Type;
 import com.zayzou.tacos.entity.Taco;
 import com.zayzou.tacos.entity.TacoOrder;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -20,6 +22,13 @@ import java.util.stream.Collectors;
 @RequestMapping("/design")
 @SessionAttributes("tacoOrder")
 public class DesignTacoController {
+
+    private final IngredientRepository ingredientRepository;
+
+
+    public DesignTacoController(IngredientRepository ingredientRepository) {
+        this.ingredientRepository = ingredientRepository;
+    }
 
     @ModelAttribute
     public void addIngredientsToModel(Model model) {
@@ -38,7 +47,6 @@ public class DesignTacoController {
         for (Type type : types) {
             model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
         }
-
 
     }
 
@@ -68,6 +76,8 @@ public class DesignTacoController {
     }
 
     private Iterable<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
-        return ingredients.stream().filter(x -> x.getType().equals(type)).collect(Collectors.toList());
+        return ingredients.stream()
+                .filter(x -> x.getType().equals(type))
+                .collect(Collectors.toList());
     }
 }
