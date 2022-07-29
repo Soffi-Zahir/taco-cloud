@@ -3,9 +3,7 @@ package com.zayzou.tacos.data;
 import com.zayzou.tacos.entity.TacoOrder;
 import org.springframework.data.repository.CrudRepository;
 
-import java.util.Optional;
-
-public interface OrderRepository  extends CrudRepository<OrderRepository,Long> {
+public interface OrderRepository  extends CrudRepository<TacoOrder,String> {
 //
 //    TacoOrder save(TacoOrder order);
 //
