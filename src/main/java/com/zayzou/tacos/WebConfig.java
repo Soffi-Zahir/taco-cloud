@@ -10,6 +10,6 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         System.out.println("Calling from the config file");
-        registry.addViewController("design");
+//        registry.addViewController("design");
     }
 }
