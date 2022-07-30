@@ -1,8 +1,6 @@
 package com.zayzou.tacos.entity;
 
 import lombok.Data;
-import org.springframework.data.relational.core.mapping.Table;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
